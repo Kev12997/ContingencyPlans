@@ -1,0 +1,30 @@
+<nav class="primary-color-dark" style="top: 0">
+  <ul>
+    <li>
+      <a routerLink="viewdocument" [class.activated]="currentUrl == '/viewdocument'">
+        <i class="material-icons">supervised_user_circle</i>
+      </a>
+    </li>
+    <li>
+      <a routerLink="policiespage" [class.activated]="currentUrl == '/policiespage'">
+        <i class="material-icons">message</i>
+      </a>
+    </li>
+    <li>
+      <a routerLink="editarDocumento" [class.activated]="currentUrl == '/editarDocumento'">
+        <i class="material-icons">book</i>
+      </a>
+    </li>
+    <li>
+      <a routerLink="quickreponse" [class.activated]="currentUrl == '/quickreponse'">
+        <i class="material-icons">phone</i>
+      </a>
+    </li>
+    <li>
+      <a routerLink="changelog" [class.activated]="currentUrl == '/changelog'">
+        <i class="fa fa-book" aria-hidden="true"></i>
+      </a>
+    </li>
+   
+  </ul>
+</nav>

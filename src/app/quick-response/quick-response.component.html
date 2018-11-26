@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-sm-6">
+    <h2>Contact Information:</h2>
+  </div>
+</div>
+
+<br>
+
+<div *ngFor='let t of telephones'>
+  <br>
+    <div *ngIf="t.reason!='N/A'">
+      <h4><label [innerHtml]="t.reason"></label><br><br></h4>
+      <label [innerHtml]="t.contactname"></label><br>
+      <label [innerHtml]="t.contacttitle"></label><br> 
+      <a href=""><label [innerHtml]="t.contacphone"></label></a><br> 
+      <a href=""><label [innerHtml]="t.contactemail"></label></a><br> 
+    </div>
+    <div *ngIf="t.reason=='N/A'">
+      <br><label [innerHtml]="t.contactname"></label><br>
+      <label [innerHtml]="t.contacttitle"></label><br> 
+      <a href=""><label [innerHtml]="t.contacphone"></label></a><br> 
+      <a href=""><label [innerHtml]="t.contactemail"></label></a><br> 
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="section" *ngFor="let s of seccion">
+  <div class="md-form">
+    <input   type="text"  class="form-control" [(ngModel)]="s.category" mdbInputDirective [mdbValidate]="false">
+    <label for="form1" class="">Categoria o título</label>
+  </div>
+  <br>
+  <!-- 
+    <div class="md-form">
+    <textarea  type="text" [(ngModel)]="s.body" class="md-textarea md-textarea-auto form-control" mdbInputDirective [mdbValidate]="false"></textarea>
+    <label for="form7">Cuerpo del texto</label>
+  </div>
+ -->
+  <div [froalaEditor] [(froalaModel)]="s.body"></div>
+</div>
