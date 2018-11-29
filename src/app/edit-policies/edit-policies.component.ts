@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonService } from '../common.service';
+import { Router, NavigationEnd } from '@angular/router'
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-edit-policies',
@@ -7,9 +10,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditPoliciesComponent implements OnInit {
 
-  constructor() { }
+  currentUrl: string;
+
+
+  constructor(private router : Router, private commonService: CommonService) {
+    router.events.subscribe((_: NavigationEnd) => this.currentUrl = this.router.url);
+  }
+
+  policy={
+    Policy: '',
+    companyName: '',
+    companyDescription: '',
+    contactEmail: '',
+    phone: '',
+    policyNumber: '',
+    policyTerm: ''
+  }
 
   ngOnInit() {
+  }
+
+  onEditPolicies(){
+    this.commonService.postEditPolicy(this.policy).subscribe(        
+      (response) => console.log(response),
+    (error) => console.log(error))
   }
 
 }

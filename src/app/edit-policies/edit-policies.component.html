@@ -3,27 +3,25 @@
     <h2>Edit Policies Information</h2><br>
   </div><br>
 
-  <div class="row">
-    <h3>Policy Information:</h3><br>
-  </div><br>
+
 
   <div class="row">
     <h5>Policy</h5><br>
-    <input type="text" id="defaultPolicy" class="form-control mb-4" placeholder="Policy">
+    <input type="text" id="defaultPolicy" class="form-control mb-4" placeholder="Policy" [(ngModel)]="policy.Policy">
     <h5>Company Name</h5><br>
-    <input type="text" id="defaultCompanyName" class="form-control mb-4" placeholder="Company Name">
+    <input type="text" id="defaultCompanyName" class="form-control mb-4" placeholder="Company Name" [(ngModel)]="policy.companyName">
     <h5>Company Description</h5><br>
-    <input type="text" id="defaultCompanyDescription" class="form-control mb-4" placeholder="Description">
+    <input type="text" id="defaultCompanyDescription" class="form-control mb-4" placeholder="Description" [(ngModel)]="policy.companyDescription">
     <h5>Contact Email</h5><br>
-    <input type="text" id="defaultCompanyEmail" class="form-control mb-4" placeholder="Email">
+    <input type="text" id="defaultCompanyEmail" class="form-control mb-4" placeholder="Email" [(ngModel)]="policy.contactEmail">
     <h5>Phone Number</h5><br>
-    <input type="text" id="defaultPhone" class="form-control mb-4" placeholder="Phone">
+    <input type="text" id="defaultPhone" class="form-control mb-4" placeholder="Phone" [(ngModel)]="policy.phone">
     <h5>Policy Number</h5><br>
-    <input type="text" id="defaultPolicyNumber" class="form-control mb-4" placeholder="Policy Number">
+    <input type="text" id="defaultPolicyNumber" class="form-control mb-4" placeholder="Policy Number" [(ngModel)]="policy.policyNumber">
     <h5>Policy Term</h5><br>
-    <input type="text" id="defaultPolicyTerm" class="form-control mb-4" placeholder="Policy Term">
+    <input type="text" id="defaultPolicyTerm" class="form-control mb-4" placeholder="Policy Term" [(ngModel)]="policy.policyTerm">
 
-    <button mdbBtn color="info" class="my-4" type="submit">Submit</button>
+    <button mdbBtn color="info" class="my-4" type="submit" (click)="onEditPolicies()">Submit</button>
   </div>
 </div>
 

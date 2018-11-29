@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+import { CommonService } from '../common.service';
 
 @Component({
   selector: 'app-edit-contact',
@@ -7,12 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditContactComponent implements OnInit {
 
-  foundContact: boolean;
+  currentUrl: string;
 
-  constructor() { }
+  constructor(private router: Router, private commonService: CommonService) {
+    router.events.subscribe((_: NavigationEnd) => this.currentUrl = this.router.url);
+  }
 
-  ngOnInit() {
-    this.foundContact = true;
+  contact={
+    emergencyTitle: '',
+    entityName: '',
+    entityDescription: '',
+    entityPhone: '',
+    contactEmail: ''
+  }
+
+
+  ngOnInit()  {} 
+
+  onEditContact(){
+    this.commonService.postEditContact(this.contact).subscribe(
+      (response) => console.log(response),
+      (error) => console.log(error)
+    );
   }
 
 }
