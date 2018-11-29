@@ -2,23 +2,40 @@
 
 <header>
   <nav class="navbar fixed-top navbar-expand-lg  navbar-dark primary-color-dark">
-    
-      
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-              <li class="nav-item">
-                  <a class="nav-link" routerLink="/" >Home <span class="sr-only">(current)</span></a>
-              </li>          
-          </ul>
-          <ul class="navbar-nav nav-flex-icons">
-              <li class="nav-item">
-                  <a class="nav-link" routerLink="createaccount" [class.activated]="currentUrl == '/createaccount'">Create Account</a>          
-              </li>
-          </ul>
-      </div>
+
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+
+
+        <div *ngIf='logged; then thenBlock else elseBlock'></div>
+        
+        <ng-template #thenBlock>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/viewdocument">Home <span class="sr-only">(current)</span></a>
+          </li>
+        </ng-template>
+        
+        <ng-template #elseBlock>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
+          </li>
+        </ng-template>
+
+
+      </ul>
+    </div>
+
+    <ul class="navbar-nav nav-flex-icons">
+      <li class="nav-item">
+        
+        <a class="nav-link" *ngIf='logged' (click)='onLogOut()'>Log out</a>
+      </li>
+    </ul>
   </nav>
 </header>
 

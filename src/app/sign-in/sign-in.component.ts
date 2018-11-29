@@ -50,10 +50,10 @@ export class SignInComponent implements OnInit {
       if (this.credential.email === element.email && this.credential.password === element.password){
         this.LoggedIn=true;
         localStorage.setItem("logged", this.LoggedIn.toString());
+        window.location.reload()
       }
-       
-        
      });
+     
   }
 
   ngOnInit() {

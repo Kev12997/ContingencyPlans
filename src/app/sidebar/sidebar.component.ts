@@ -8,9 +8,10 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class SidebarComponent implements OnInit {
   currentUrl: string;
-
+  logged;
   constructor(private router: Router) {
     router.events.subscribe((_: NavigationEnd) => this.currentUrl = this.router.url);
+    this.logged = localStorage.getItem('logged') === 'true'
   }
 
   ngOnInit() {
