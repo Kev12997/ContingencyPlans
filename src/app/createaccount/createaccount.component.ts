@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { CommonService } from '../common.service';
 
 @Component({
   selector: 'app-createaccount',
@@ -9,10 +10,29 @@ import { Router, NavigationEnd } from '@angular/router';
 export class CreateAccountComponent implements OnInit {
   currentUrl: string;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private commonService: CommonService) {
     router.events.subscribe((_: NavigationEnd) => this.currentUrl = this.router.url);
   }
 
+  user =
+    {
+      name: '',
+      email: '',
+      password: ''
+      
+    }
+
+
+    onCreateAccount(){
+      console.log("entro");
+      
+      this.commonService.createAccount(this.user).subscribe(
+        (response) => console.log(response),
+        (error) => console.log(error)
+      );
+      console.log("reee");
+      
+    }
   ngOnInit() {
   }
 

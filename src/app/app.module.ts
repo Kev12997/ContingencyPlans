@@ -26,6 +26,10 @@ import { PoliciesPageComponent } from './policies-page/policies-page.component';
 import { EditPoliciesComponent } from './edit-policies/edit-policies.component';
 import { ChangelogComponent } from './changelog/changelog.component';
 
+import { HttpModule } from '@angular/http';
+import { CommonService } from './common.service';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,10 +55,11 @@ import { ChangelogComponent } from './changelog/changelog.component';
     SidebarModule.forRoot(),
     MDBBootstrapModule.forRoot(),
     FroalaEditorModule.forRoot(),
-    FroalaViewModule.forRoot()
+    FroalaViewModule.forRoot(),
+    HttpModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
-  providers: [],
+  providers: [CommonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
