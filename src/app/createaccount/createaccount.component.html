@@ -11,7 +11,12 @@
 
     <!-- Password -->
     <input type="password" id="defaultCreateAccountFormPassword" class="form-control mb-4" placeholder="Password"[(ngModel)]="user.password">
-
+    
+    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" placeholder=""[(ngModel)]="user.role">
+      <option disabled selected>Choose Role</option>
+      <option value="0">Admin</option>
+      <option value="1">User</option>
+    </select>
     <!-- Create Account button -->
     <button mdbBtn color="info" block="true" class="my-4" type="submit" (click)="onCreateAccount()">Create Account</button>
   </div>

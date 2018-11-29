@@ -14,26 +14,20 @@ export class CreateAccountComponent implements OnInit {
     router.events.subscribe((_: NavigationEnd) => this.currentUrl = this.router.url);
   }
 
-  user =
-    {
+  user ={
       name: '',
       email: '',
-      password: ''
-      
+      password: '',
+      role:""
     }
 
 
-    onCreateAccount(){
-      console.log("entro");
-      
+    onCreateAccount(){      
       this.commonService.createAccount(this.user).subscribe(
         (response) => console.log(response),
         (error) => console.log(error)
       );
-      console.log("reee");
-      
     }
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

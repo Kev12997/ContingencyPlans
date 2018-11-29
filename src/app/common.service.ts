@@ -12,6 +12,6 @@ export class CommonService {
     return this.http.get('https://contingencyplan-1edad.firebaseio.com/', id)
   }
   createAccount(user){
-    return this.http.post('https://contingencyplan-1edad.firebaseio.com/data.json', user)
+    return this.http.post('https://contingencyplan-1edad.firebaseio.com/users.json', user)
   }
 }
