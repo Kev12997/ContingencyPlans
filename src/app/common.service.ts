@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Response } from '@angular/http';
+import { map } from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -15,11 +16,12 @@ export class CommonService {
     return this.http.post('https://contingencyplan-1edad.firebaseio.com/users.json', user)
   }
 
-  getAccounts(credentials){
-    return this.http.get('https://contingencyplan-1edad.firebaseio.com/users.json?user==${credential.email}')
+  getAccounts(){
+    return this.http.get('https://contingencyplan-1edad.firebaseio.com/users.json')
   }
+  
 
-  postEditPolicy(policy){
+  postEditPolicy(policy){ 
     return this.http.post('https://contingencyplan-1edad.firebaseio.com/users.json', policy)
   }
 
