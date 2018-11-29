@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonService } from '../common.service';
 
 @Component({
   selector: 'app-view-document',
@@ -7,7 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewDocumentComponent implements OnInit {
 
-  constructor() { }
+  constructor(common:CommonService) {
+    common.getPlan().subscribe(
+      (res) => {
+        if(res.json() != null)
+          this.seccion= res.json()
+      },
+      (err) =>  console.log(err)
+      
+    )
+   }
 
   ngOnInit() {
   }

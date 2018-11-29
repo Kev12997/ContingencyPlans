@@ -1,14 +1,17 @@
-<div class="section" *ngFor="let s of seccion">
+<div class="section" *ngFor="let s of seccion; let i = index" [attr.data-index]="i">
   <div class="md-form">
-    <input   type="text"  class="form-control" [(ngModel)]="s.category" mdbInputDirective [mdbValidate]="false">
-    <label for="form1" class="">Categoria o título</label>
+    <input type="text" class="form-control" [(ngModel)]="s.category" mdbInputDirective [mdbValidate]="false">
+    <label class="">Categoria o título</label>
   </div>
   <br>
-  <!-- 
-    <div class="md-form">
-    <textarea  type="text" [(ngModel)]="s.body" class="md-textarea md-textarea-auto form-control" mdbInputDirective [mdbValidate]="false"></textarea>
-    <label for="form7">Cuerpo del texto</label>
-  </div>
- -->
+
   <div [froalaEditor] [(froalaModel)]="s.body"></div>
+  <div class="row">
+    <div class="col-sm-12">
+      <button class="btn btn-primary" (click)='onSave(i)'>Save</button>
+      <button class="btn btn-red" (click)='onDelete(i)'>Delete</button>
+    </div>
+  </div>
 </div>
+
+<button class="btn btn-primary" (click)="newSection()">New Section</button>
