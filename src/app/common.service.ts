@@ -16,13 +16,13 @@ export class CommonService {
   getAccounts(){
     return this.http.get('https://contingencyplan-1edad.firebaseio.com/users.json')
   }
-  
-  postAddPolicy(policy){ 
+
+  postAddPolicy(policy){
     return this.http.post('https://contingencyplan-1edad.firebaseio.com/policy.json', policy)
   }
 
-  postEditPolicy(policyEdit){ 
-    return this.http.post('https://contingencyplan-1edad.firebaseio.com/policyEdit.json', policyEdit)
+  postEditPolicy(policyEdit){
+    return this.http.put('https://contingencyplan-1edad.firebaseio.com/policyEdit.json', policyEdit)
   }
 
   postEditContact(contact){
