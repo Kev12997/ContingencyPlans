@@ -17,12 +17,16 @@ export class CommonService {
     return this.http.get('https://contingencyplan-1edad.firebaseio.com/users.json')
   }
   
-  postEditPolicy(policy){ 
-    return this.http.post('https://contingencyplan-1edad.firebaseio.com/users.json', policy)
+  postAddPolicy(policy){ 
+    return this.http.post('https://contingencyplan-1edad.firebaseio.com/policy.json', policy)
+  }
+
+  postEditPolicy(policyEdit){ 
+    return this.http.post('https://contingencyplan-1edad.firebaseio.com/policyEdit.json', policyEdit)
   }
 
   postEditContact(contact){
-    return this.http.post('https://contingencyplan-1edad.firebaseio.com/users.json', contact)
+    return this.http.post('https://contingencyplan-1edad.firebaseio.com/contact.json', contact)
   }
   editPlan(data){
     return this.http.put('https://contingencyplan-1edad.firebaseio.com/plan.json', data)
@@ -30,4 +34,10 @@ export class CommonService {
   getPlan(){
     return this.http.get('https://contingencyplan-1edad.firebaseio.com/plan.json')
   }
+
+  getPolicy(){
+    return this.http.get('https://contingencyplan-1edad.firebaseio.com/policy.json')
+  }
+
+
 }
