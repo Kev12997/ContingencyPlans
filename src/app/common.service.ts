@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { map } from "rxjs/operators";
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -9,35 +9,27 @@ export class CommonService {
 
   constructor(private http: Http) { }
 
-  createAccount(user){
-    return this.http.post('https://contingencyplan-1edad.firebaseio.com/users.json', user)
+  createAccount(user) {
+    return this.http.post('https://contingencyplan-1edad.firebaseio.com/users.json', user);
+  }
+  getAccounts() {
+    return this.http.get('https://contingencyplan-1edad.firebaseio.com/users.json');
   }
 
-  getAccounts(){
-    return this.http.get('https://contingencyplan-1edad.firebaseio.com/users.json')
+  EditContact(contact) {
+    return this.http.post('https://contingencyplan-1edad.firebaseio.com/contact.json', contact);
   }
-
-  postAddPolicy(policy){
-    return this.http.post('https://contingencyplan-1edad.firebaseio.com/policy.json', policy)
+  editPlan(data) {
+    return this.http.put('https://contingencyplan-1edad.firebaseio.com/plan.json', data);
   }
-
-  postEditPolicy(policyEdit){
-    return this.http.put('https://contingencyplan-1edad.firebaseio.com/policyEdit.json', policyEdit)
+  getPlan() {
+    return this.http.get('https://contingencyplan-1edad.firebaseio.com/plan.json');
   }
-
-  postEditContact(contact){
-    return this.http.post('https://contingencyplan-1edad.firebaseio.com/contact.json', contact)
+  getPolicy() {
+    return this.http.get('https://contingencyplan-1edad.firebaseio.com/policies.json');
   }
-  editPlan(data){
-    return this.http.put('https://contingencyplan-1edad.firebaseio.com/plan.json', data)
+  editPolicy(policies) {
+    return this.http.put('https://contingencyplan-1edad.firebaseio.com/policies.json', policies);
   }
-  getPlan(){
-    return this.http.get('https://contingencyplan-1edad.firebaseio.com/plan.json')
-  }
-
-  getPolicy(){
-    return this.http.get('https://contingencyplan-1edad.firebaseio.com/policy.json')
-  }
-
 
 }

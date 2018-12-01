@@ -10,42 +10,43 @@ export class EditarSeccionComponent implements OnInit {
   constructor(private commonService: CommonService) {
     this.commonService.getPlan().subscribe(
       (response) => {
-        if (response.json() != null)
-          this.seccion = (response.json())
+        if (response.json() != null) {
+          this.seccion = (response.json());
+        }
         console.log(this.seccion);
       },
       (error) => console.log(error)
-    )
+    );
   }
-
-  ngOnInit() {}
 
   seccion = [{
     body: '',
     category: ''
-  }]
+  }];
+
+  ngOnInit() {}
 
 
   onSave(index) {
     this.commonService.editPlan(this.seccion).subscribe(
       (response) => console.log(response),
       (error) => console.log(error)
-    )
+    );
   }
   onDelete(index) {
-    this.seccion.splice(index, index)
+    this.seccion.splice(index, index);
     this.commonService.editPlan(this.seccion).subscribe(
       (res) => console.log(res),
       (err) => console.log(err)
-    )
+    );
   }
   newSection() {
-   
-    var temp = {
+
+    const temp = {
       category: '',
       body: ''
-    }
-    this.seccion.push(temp)
+    };
+    this.seccion.push(temp);
 
   }
 }

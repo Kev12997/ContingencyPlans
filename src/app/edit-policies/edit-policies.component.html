@@ -1,70 +1,73 @@
 <div class="row">
-  <div class="col-sm-3">
-    <div class="row">
-      <h2>Add Policies</h2>
-    </div><br>
 
-    <div class="row">
-      <h5>Policy ID</h5>
-      <input type="text" id="defaultPolicy" class="form-control mb-4" placeholder="Policy" [(ngModel)]="policy.policyID">
-      <h5>Policy</h5>
-      <input type="text" id="defaultPolicy" class="form-control mb-4" placeholder="Policy" [(ngModel)]="policy.Policy">
-      <h5>Company Name</h5>
-      <input type="text" id="defaultCompanyName" class="form-control mb-4" placeholder="Company Name" [(ngModel)]="policy.companyName">
-      <h5>Company Description</h5>
-      <input type="text" id="defaultCompanyDescription" class="form-control mb-4" placeholder="Description" [(ngModel)]="policy.companyDescription">
-      <h5>Contact Email</h5>
-      <input type="text" id="defaultCompanyEmail" class="form-control mb-4" placeholder="Email" [(ngModel)]="policy.contactEmail">
-      <h5>Phone Number</h5>
-      <input type="text" id="defaultPhone" class="form-control mb-4" placeholder="Phone" [(ngModel)]="policy.phone">
-      <h5>Policy Number</h5>
-      <input type="text" id="defaultPolicyNumber" class="form-control mb-4" placeholder="Policy Number" [(ngModel)]="policy.policyNumber">
-      <h5>Policy Term</h5>
-      <input type="text" id="defaultPolicyTerm" class="form-control mb-4" placeholder="Policy Term" [(ngModel)]="policy.policyTerm">
+  <div class="col-xl-5">
+    <h2>Add Policies</h2>
 
-      <button mdbBtn color="info" class="my-4" type="submit" (click)="onAddPolicies()">Submit</button>
-    </div>
+
+    <h5>Policy ID</h5>
+    <input type="text"  class="form-control mb-4" placeholder="Policy" [(ngModel)]="policy.policyID">
+
+    <h5>Policy</h5>
+    <input type="text" class="form-control mb-4" placeholder="Policy" [(ngModel)]="policy.policy">
+
+    <h5>Company Name</h5>
+    <input type="text"  class="form-control mb-4" placeholder="Company Name" [(ngModel)]="policy.companyName">
+
+    <h5>Company Description</h5>
+    <textarea  class="form-control mb-4" placeholder="Description" [(ngModel)]="policy.companyDescription"></textarea>
+    <h5>Contact Email</h5>
+    <input type="text"  class="form-control mb-4" placeholder="Email" [(ngModel)]="policy.contactEmail">
+
+    <h5>Phone Number</h5>
+    <input type="text"  class="form-control mb-4" placeholder="Phone" [(ngModel)]="policy.phone">
+
+    <h5>Policy Number</h5>
+    <input type="text" class="form-control mb-4" placeholder="Policy Number" [(ngModel)]="policy.policyNumber">
+
+    <h5>Policy Term</h5>
+    <input type="date"  class="form-control mb-4" placeholder="Policy Term" [(ngModel)]="policy.policyTerm">
+
+    <button mdbBtn color="info" class="my-4"  (click)="onAddPolicies()">Submit</button>
 
   </div>
 
-  <div class="col-sm-3"></div>
 
-  <div class="col-sm-3">
-    <div class="row">
+
+  <div class="col-xl-7" *ngFor="let pol of policies; let i = index" [attr.data-index]="i">
+    <div style=" position: absolute; top: 0px; bottom: 0; left: 0; width: 100%; overflow-y: scroll; ">
+
+      <div *ngFor="let pol of policies; let i = index" [attr.data-index]="i">
+
       <h2>Edit Policies</h2>
-    </div><br>
+      <h5>Policy ID</h5>
+      <input type="text" id="dedicy" class="form-control mb-4" placeholder="Policy" [(ngModel)]="pol.policyID">
 
-    <div class="row">
-      <h5>Search policy to edit</h5>
-      <input type="text" class="form-control mb-4" placeholder="Policy id">
-      <button mdbBtn color="info" class="my-4" type="submit" (click)="onSearchPolicies()">Search</button>
+      <h5>Policy</h5>
+      <input type="text" id="dedffcy" class="form-control mb-4" placeholder="Policy" [(ngModel)]="pol.policy">
+
+      <h5>Company Name</h5>
+      <input type="text" id="defaultCompanyName" class="form-control mb-4" placeholder="Company Name" [(ngModel)]="pol.companyName">
+
+      <h5>Company Description</h5>
+      <textarea id="defaultCompanyDescription" class="form-control mb-4" placeholder="Description" [(ngModel)]="pol.companyDescription"></textarea>
+
+      <h5>Contact Email</h5>
+      <input type="text" id="defaultCompanyEmail" class="form-control mb-4" placeholder="Email" [(ngModel)]="pol.contactEmail">
+
+      <h5>Phone Number</h5>
+      <input type="text" id="defaultPhone" class="form-control mb-4" placeholder="Phone" [(ngModel)]="pol.phone">
+
+      <h5>Policy Number</h5>
+      <input type="text" id="defaultPolicyNumber" class="form-control mb-4" placeholder="Policy Number" [(ngModel)]="pol.policyNumber">
+
+      <h5>Policy Term</h5>
+      <input type="date" id="defaultPolicyTerm" class="form-control mb-4" placeholder="Policy Term" [(ngModel)]="pol.policyTerm">
+
+
+      <button mdbBtn color="info" class="my-4" type="submit" (click)="onEditPolicies()">Save</button>
+      </div>
+
     </div>
   </div>
 
-
-  <div class="col-sm-3">
-      <div class="row">
-
-        <h5>Policy</h5>
-        <input type="text" id="defaultPolicy" class="form-control mb-4" placeholder="Policy" [(ngModel)]="policy.Policy"><br>
-        <h5>Company Name</h5><br>
-        <input type="text" id="defaultCompanyName" class="form-control mb-4" placeholder="Company Name" [(ngModel)]="policy.companyName">
-        <h5>Company Description</h5><br>
-        <input type="text" id="defaultCompanyDescription" class="form-control mb-4" placeholder="Description" [(ngModel)]="policy.companyDescription">
-        <h5>Contact Email</h5><br>
-        <input type="text" id="defaultCompanyEmail" class="form-control mb-4" placeholder="Email" [(ngModel)]="policy.contactEmail">
-        <h5>Phone Number</h5><br>
-        <input type="text" id="defaultPhone" class="form-control mb-4" placeholder="Phone" [(ngModel)]="policy.phone">
-        <h5>Policy Number</h5><br>
-        <input type="text" id="defaultPolicyNumber" class="form-control mb-4" placeholder="Policy Number" [(ngModel)]="policy.policyNumber">
-        <h5>Policy Term</h5><br>
-        <input type="text" id="defaultPolicyTerm" class="form-control mb-4" placeholder="Policy Term" [(ngModel)]="policy.policyTerm">
-
-        <button mdbBtn color="info" class="my-4" type="submit" (click)="onEditPolicies()">Save</button>
-    </div>
-
-  </div>
-
-  <div class="col-sm-3"></div>
-
-</div>  
+</div>

@@ -15,22 +15,22 @@ export class EditContactComponent implements OnInit {
     router.events.subscribe((_: NavigationEnd) => this.currentUrl = this.router.url);
   }
 
-  contact={
+  contact = {
     emergencyTitle: '',
     entityName: '',
     entityDescription: '',
     entityPhone: '',
     contactEmail: ''
-  }
+  };
 
 
-  ngOnInit()  {} 
+  ngOnInit()  {}
 
-  onEditContact(){
-    this.commonService.postEditContact(this.contact).subscribe(
-      (response) => console.log(response),
-      (error) => console.log(error)
-    );
-  }
+  // onEditContact(){
+  //   this.commonService.postEditContact(this.contact).subscribe(
+  //     (response) => console.log(response),
+  //     (error) => console.log(error)
+  //   );
+  // }
 
 }

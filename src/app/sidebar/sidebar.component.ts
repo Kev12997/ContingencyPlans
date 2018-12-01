@@ -1,21 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {Router, NavigationEnd} from '@angular/router';
 
-@Component({
-  selector: 'app-sidebar',
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss'],
-})
+@Component({selector: 'app-sidebar', templateUrl: './sidebar.component.html', styleUrls: ['./sidebar.component.scss']})
 export class SidebarComponent implements OnInit {
-  currentUrl: string;
-  logged;
-  constructor(private router: Router) {
-    router.events.subscribe((_: NavigationEnd) => this.currentUrl = this.router.url);
-    this.logged = localStorage.getItem('logged') === 'true'
-  }
+    currentUrl: string;
+    logged;
+    constructor(private router: Router) {
+        router
+            .events
+            .subscribe((_: NavigationEnd) => this.currentUrl = this.router.url);
+        this.logged = localStorage.getItem('logged') === 'true';
+    }
 
-  ngOnInit() {
-
-  }
+    ngOnInit() {}
 
 }
