@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonService } from '../common.service';
 
 @Component({
   selector: 'app-policies-page',
@@ -7,8 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PoliciesPageComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private commonService: CommonService) {
+    this.commonService.getPolicy().subscribe(
+      (res) => {
+      this.policies = res.json();
+      console.log(this.policies);
+       },
+      (err) => console.log(err)
+    );
+   }
+  policies;
   ngOnInit() {
   }
 

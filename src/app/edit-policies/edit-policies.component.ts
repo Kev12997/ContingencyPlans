@@ -81,13 +81,6 @@ export class EditPoliciesComponent implements OnInit {
 
   onEditPolicies() {
     this.commonService.editPolicy(this.policies).subscribe((response) => console.log(response), (error) => console.log(error));
-    this.policy.policy = '';
-    this.policy.companyName = '';
-    this.policy.companyDescription = '';
-    this.policy.contactEmail = '';
-    this.policy.phone = '';
-    this.policy.policyNumber = '';
-    this.policy.policyTerm = '';
   }
   onAddPolicies() {
    // tslint:disable-next-line:max-line-length
@@ -96,11 +89,13 @@ export class EditPoliciesComponent implements OnInit {
       console.log(this.messageDisplay);
 
     } else {
+
       this.policies.push(this.policy);
       if (this.isPolicyEmpty(this.policies[0])) { this.policies.shift(); }
 
       this.commonService.editPolicy(this.policies).subscribe((response) => console.log(response), (error) => console.log(error));
-      this.policy.policyID= '';
+
+      this.policy.policyID = '';
       this.policy.policy = '';
       this.policy.companyName = '';
       this.policy.companyDescription = '';
@@ -109,6 +104,9 @@ export class EditPoliciesComponent implements OnInit {
       this.policy.policyNumber = '';
       this.policy.policyTerm = '';
       this.messageDisplay = 'POLICY HAS BEEN CREATED';
+
+
+
     }
   }
 }
