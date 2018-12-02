@@ -1,5 +1,7 @@
-import { Component,  OnInit} from '@angular/core';
+import { Component,  OnInit, ViewChild, ElementRef} from '@angular/core';
 import {  CommonService} from '../../common.service';
+import * as jspdf from 'jspdf';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-editar-seccion',
@@ -7,6 +9,10 @@ import {  CommonService} from '../../common.service';
   styleUrls: ['./editar-seccion.component.scss']
 })
 export class EditarSeccionComponent implements OnInit {
+
+  Title: string;
+  Paragraph: string;
+
   constructor(private commonService: CommonService) {
     this.commonService.getPlan().subscribe(
       (response) => {
@@ -47,6 +53,24 @@ export class EditarSeccionComponent implements OnInit {
       body: ''
     };
     this.seccion.push(temp);
+
+  }
+
+  savePDF() {
+    let doc = new jspdf();
+
+    this.commonService.getPlan().subscribe(
+      (data: any) => {
+        if (data.length) {
+          this.Title = data[0].category;
+          this.Paragraph = data[1].body;
+        }
+      },
+      (error) => console.log(error)
+    );
+
+    doc.text(this.Paragraph, 10, 10);
+    doc.save('a4.pdf');
 
   }
 }
