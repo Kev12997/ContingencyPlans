@@ -55,22 +55,4 @@ export class EditarSeccionComponent implements OnInit {
     this.seccion.push(temp);
 
   }
-
-  savePDF() {
-    let doc = new jspdf();
-
-    this.commonService.getPlan().subscribe(
-      (data: any) => {
-        if (data.length) {
-          this.Title = data[0].category;
-          this.Paragraph = data[1].body;
-        }
-      },
-      (error) => console.log(error)
-    );
-
-    doc.text(this.Paragraph, 10, 10);
-    doc.save('a4.pdf');
-
-  }
 }
