@@ -12,9 +12,11 @@
 
 
 <br>
-<div *ngFor="let s of seccion" id="contentToConvert">
-  <h2>{{s.category}}</h2>
-  <br>
-  <label [innerHtml]="s.body"></label>
-
+<div id="contentToConvert">
+    <div *ngFor="let s of seccion" >
+        <h2>{{s.category}}</h2>
+        <br>
+        <label [innerHtml]="s.body"></label>
+      
+      </div>
 </div>
