@@ -6,19 +6,20 @@
 
 <br>
 
-<div *ngFor='let t of telephones'>
-  <br>
-    <div *ngIf="t.reason!='N/A'">
-      <h4><label [innerHtml]="t.reason"></label><br><br></h4>
-      <label [innerHtml]="t.contactname"></label><br>
-      <label [innerHtml]="t.contacttitle"></label><br> 
-      <a href=""><label [innerHtml]="t.contacphone"></label></a><br> 
-      <a href=""><label [innerHtml]="t.contactemail"></label></a><br> 
+<div *ngFor='let con of contacts'>
+  <h4> {{con.emergencyTitle}}<br><br></h4>
+  <div *ngFor="let contact of contacts">
+    <div *ngIf="contact.emergencyTitle == con.emergencyTitle">
+
+      <p> <strong>{{contact.entityName}}|</strong> {{contact.entityDescription}}</p><br>
+      <p>
+        Phone number: <a href="tel:{{contact.entityPhone}}">{{contact.entityPhone}}</a>
+      </p>
+      <br>
+      <p>
+        Email: <a href="mailto:{{contact.entityEmail}}">{{contact.entityEmail}}</a>
+      </p>
+      <br>
     </div>
-    <div *ngIf="t.reason=='N/A'">
-      <br><label [innerHtml]="t.contactname"></label><br>
-      <label [innerHtml]="t.contacttitle"></label><br> 
-      <a href=""><label [innerHtml]="t.contacphone"></label></a><br> 
-      <a href=""><label [innerHtml]="t.contactemail"></label></a><br> 
-    </div>
+  </div>
 </div>

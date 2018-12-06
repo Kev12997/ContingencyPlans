@@ -15,10 +15,6 @@ export class CommonService {
   getAccounts() {
     return this.http.get('https://contingencyplan-1edad.firebaseio.com/users.json');
   }
-
-  EditContact(contact) {
-    return this.http.post('https://contingencyplan-1edad.firebaseio.com/contact.json', contact);
-  }
   editPlan(data) {
     return this.http.put('https://contingencyplan-1edad.firebaseio.com/plan.json', data);
   }
@@ -31,5 +27,10 @@ export class CommonService {
   editPolicy(policies) {
     return this.http.put('https://contingencyplan-1edad.firebaseio.com/policies.json', policies);
   }
-
+  getContacts() {
+    return this.http.get('https://contingencyplan-1edad.firebaseio.com/contacts.json')
+  }
+  editContacts(contacts) {
+    return this.http.put('https://contingencyplan-1edad.firebaseio.com/contacts.json', contacts)
+  }
 }

@@ -52,6 +52,10 @@ const routes: Routes = [
   {
     path: 'changelog',
     component: ChangelogComponent
+  },
+  {
+    path: 'editcontacts',
+    component: EditContactComponent
   }
 ];
 
